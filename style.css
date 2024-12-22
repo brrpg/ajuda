@@ -1,0 +1,129 @@
+.sidebar {
+    height: 100vh;
+    background-color: #f8f9fa;
+    padding-top: 20px;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: #333;
+    padding: 10px;
+    display: block;
+    margin-bottom: 0.25em;
+}
+
+.sidebar a:hover, .active {
+    background-color: #e9ecef;
+    border-radius: 5px;
+    color: var(--bs-nav-link-hover-color)!important;
+}
+
+.content {
+    padding: 20px;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        z-index: 1050;
+        overflow-y: auto;
+        background-color: #f8f9fa;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .sidebar.show {
+        transform: translateX(0);
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+
+    .sidebar-backdrop {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1040;
+    }
+
+    .sidebar-backdrop.show, .closeSidebar {
+        display: block!important;
+    }
+}
+
+.discord-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #5865F2;
+    color: white;
+    border-radius: 50px;
+    padding: 10px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.discord-link i {
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.discord-link span {
+    margin-left: 10px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateX(-10px);
+}
+
+.discord-link:hover {
+    width: 205px;
+}
+
+.discord-link:hover i {
+    transform: scale(1.1);
+}
+
+.discord-link:hover span {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.icon-link {
+    display: inline-flex;
+    gap: .375rem;
+    align-items: center;
+    text-decoration-color: rgba(var(--bs-link-color-rgb), var(--bs-link-opacity, 0.5));
+    text-underline-offset: 0.25em;
+    backface-visibility: hidden;
+}
+
+.icon-link>.bi {
+    flex-shrink: 0;
+    width: 1em;
+    height: 1em;
+    fill: currentcolor;
+    transition: .2s ease-in-out transform;
+    text-decoration: none;
+}
+
+.fs-7 {
+    font-size: 0.75rem !important;
+}
+
+.fs-8 {
+    font-size: 0.5rem !important;
+}
