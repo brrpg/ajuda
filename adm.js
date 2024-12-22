@@ -45,6 +45,13 @@ async function fetchAndDisplayData() {
             roleSection.appendChild(roleList);
             container.appendChild(roleSection);
         });
+
+        // Atualização de informações do autor, data e hora
+        const firstRow = data[0]; // Primeira linha da planilha
+        if (firstRow.AUTOR && firstRow.DATA && firstRow.HORA) {
+            const footer = document.getElementById('footer');
+            footer.innerText = `Atualizado por: ${firstRow.AUTOR} • ${firstRow.DATA} ${firstRow.HORA}`;
+        }
     } catch (error) {
         console.error('Erro ao buscar os dados:', error);
         document.getElementById('dataContainer').textContent = 'Erro ao carregar os dados.';
